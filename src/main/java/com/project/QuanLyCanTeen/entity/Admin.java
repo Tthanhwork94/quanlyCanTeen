@@ -13,10 +13,10 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maadmin")
-    private Long maAdmin;
+    private Long maadmin;
 
     @Column(name = "hoten")
-    private String hoTen;
+    private String hoten;
 
     @Column(name = "diachi")
     private String diaChi;
@@ -26,5 +26,5 @@ public class Admin {
 
     @OneToOne
     @JoinColumn(name = "maacc",referencedColumnName = "mataikhoan")
-    private TaiKhoan taiKhoan;
+    private TaiKhoan taikhoan;
 }

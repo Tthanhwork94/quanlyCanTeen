@@ -15,7 +15,7 @@ public class DonDatHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "madondathang")
-    private Long maDonDatHang;
+    private Long madondathang;
 
     @Column(name = "tgdat")
     @CreationTimestamp
@@ -25,12 +25,12 @@ public class DonDatHang {
     private Timestamp tgnhandukien;
 
     @Column(name = "tongtien")
-    private Float tongTien;
+    private Float tongtien;
 
     @Column(name = "tinhtrangdon")
-    private String tinhTrangDon;
+    private String tinhtrangdon;
 
     @ManyToOne
     @JoinColumn(name = "makhachhang",referencedColumnName = "makhachhang")
-    private KhachHang khachHang;
+    private KhachHang khachhang;
 }

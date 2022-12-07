@@ -13,17 +13,17 @@ public class TaiKhoan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "mataikhoan")
-    private Long maTaiKhoan;
+    private Long mataikhoan;
 
     @Column(name = "tentaikhoan")
-    private String tenTaiKhoan;
+    private String tentaikhoan;
 
     @Column(name = "matkhau")
-    private String matKhau;
+    private String matkhau;
 
     @Column(name = "loaitaikhoan")
-    private String loaiTaiKhoan;
+    private String loaitaikhoan;
 
     @Column(name = "tinhtrang")
-    private String tinhTrang;
+    private String tinhtrang;
 }

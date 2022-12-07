@@ -17,21 +17,21 @@ public class ChiTietPhieuNhap implements Serializable {
 
     @Id
     @Column(name = "masanpham")
-    private Long maSanPham;
+    private Long masanpham;
 
     @ManyToOne
     @MapsId
     @JoinColumn(name = "maphieunhap")
-    private PhieuNhap phieuNhap;
+    private PhieuNhap phieunhap;
 
     @ManyToOne
     @MapsId
     @JoinColumn(name = "masanpham")
-    private SanPham sanPham;
+    private SanPham sanpham;
 
     @Column(name = "dongianhap")
-    private Float donGiaNhap;
+    private Float dongianhap;
 
     @Column(name = "soluongnhap")
-    private Integer soLuongNhap;
+    private Integer soluongnhap;
 }

@@ -6,21 +6,19 @@ public class ChiTietDonDatHang {
 
     @Id
     @Column(name = "madondathang")
-    private Long maDonDatHang;
+    private Long madondathang;
 
     @Id
     @Column(name = "masanpham")
-    private Long maSanPham;
+    private Long masanpham;
 
     @ManyToOne
-    @MapsId
     @JoinColumn(name = "madondathang")
-    private DonDatHang donDatHang;
+    private DonDatHang dondathang;
 
     @ManyToOne
-    @MapsId
     @JoinColumn(name = "masanpham")
-    private SanPham sanPham;
+    private SanPham sanpham;
 
     @Column(name = "soluongmua")
     private Integer soluongmua;

@@ -15,26 +15,23 @@ public class PhieuNhap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maphieunhap")
-    private Long maPhieuNhap;
+    private Long maphieunhap;
 
     @Column(name = "ngaynhap")
     @CreationTimestamp
     private Timestamp ngayNhap;
 
-    @Column(name = "tongtien")
-    private Float tongTien;
+    @Column(name = "tongtiennhap")
+    private Float tongtiennhap;
 
-    @Column(name = "soluongnhap")
-    private Integer soLuongNhap;
-
-    @Transient
-    private Float giaNhap;
+    @Column(name = "tinhtrang")
+    private String tinhtrang;
 
     @ManyToOne
     @JoinColumn(name = "manhanviennhap",referencedColumnName = "manhanvien")
-    private NhanVien nhanVien;
+    private NhanVien nhanvien;
 
     @ManyToOne
     @JoinColumn(name = "manhacungung",referencedColumnName = "manhacungung")
-    private NhaCungUng nhaCungUng;
+    private NhaCungUng nhacungung;
 }

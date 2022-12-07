@@ -13,18 +13,18 @@ public class SanPham {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "masanpham")
-    private Long maSanPham;
+    private Long masanpham;
 
     @Column(name = "tensanpham")
-    private String tenSanPham;
+    private String tensanpham;
 
     @Column(name = "soluongton")
-    private Integer soLuongTon;
+    private Integer soluongton;
 
     @Column(name = "gia")
     private Float gia;
 
     @OneToOne
     @JoinColumn(name = "manhacungung",referencedColumnName = "manhacungung")
-    private NhaCungUng nhaCungUng;
+    private NhaCungUng nhacungung;
 }

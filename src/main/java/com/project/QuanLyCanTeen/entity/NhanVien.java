@@ -12,18 +12,18 @@ public class NhanVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "manhanvien")
-    private Long maNhanVien;
+    private Long manhanvien;
 
     @Column(name = "hoten")
-    private String hoTen;
+    private String hoten;
 
     @Column(name = "diachi")
-    private String diaChi;
+    private String diachi;
 
     @Column(name = "email")
     private String email;
 
     @OneToOne
     @JoinColumn(name = "maacc",referencedColumnName = "mataikhoan")
-    private TaiKhoan taiKhoan;
+    private TaiKhoan taikhoan;
 }
