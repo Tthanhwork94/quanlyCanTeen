@@ -12,6 +12,7 @@ public interface TaiKhoanRepo extends JpaRepository<TaiKhoan,Long> {
 
     List<TaiKhoan> findAll();
 
-    @Query(value = "EXECUTE proc_dangky :tentaikhoan,:matkhau,:loaitaikhoan",nativeQuery = true)
-    Integer dangKy(String tentaikhoan,String matkhau,String loaitaikhoan);
+    TaiKhoan save(TaiKhoan taiKhoan);
+
+    TaiKhoan findByTentaikhoan(String tentaikhoan);
 }
