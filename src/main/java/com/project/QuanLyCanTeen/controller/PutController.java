@@ -1,35 +1,34 @@
 package com.project.QuanLyCanTeen.controller;
 
+
 import com.project.QuanLyCanTeen.dto.SanPhamDto;
 import com.project.QuanLyCanTeen.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
-public class NhanVienController {
+@RequestMapping("api")
+public class PutController {
 
     @Autowired
     private SanPhamService sanPhamService;
 
-
-    @PostMapping("/sanpham")
-    public ResponseEntity<Integer> insertSanPham(@RequestBody SanPhamDto dto){
+    @PutMapping("sanpham")
+    public ResponseEntity<?> updateSanPham(@RequestBody SanPhamDto dto){
+        System.out.println(dto.getMasanpham());
         System.out.println(dto.getTensanpham());
         System.out.println(dto.getGia());
-        try{
-            Integer flag= sanPhamService.insertSanPham(dto);
-            if(flag==-1){
-               return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(-1);
-            }
-            return ResponseEntity.status(HttpStatus.CREATED).body(1);
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(-1); // 406
+        Integer flag=sanPhamService.updateSanPham(dto);
+        if (flag==1){
+            return ResponseEntity.status(HttpStatus.OK).body(1);
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1); //400
         }
+
     }
 }

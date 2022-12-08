@@ -1,7 +1,9 @@
 package com.project.QuanLyCanTeen.controller;
 
 
+import com.project.QuanLyCanTeen.dto.SanPhamDto;
 import com.project.QuanLyCanTeen.entity.TaiKhoan;
+import com.project.QuanLyCanTeen.service.SanPhamService;
 import com.project.QuanLyCanTeen.service.TaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ public class PostController {
     @Autowired
     private TaiKhoanService taiKhoanService;
 
+
     @PostMapping("/register")
     public ResponseEntity<TaiKhoan> doRegister(@RequestBody TaiKhoan taiKhoan){
 
@@ -34,4 +37,5 @@ public class PostController {
     public ResponseEntity<TaiKhoan> doLogin(@RequestBody TaiKhoan taiKhoan){
         return taiKhoanService.doLogin(taiKhoan);
     }
+
 }
