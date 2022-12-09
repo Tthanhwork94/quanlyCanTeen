@@ -1,28 +1,23 @@
 package com.project.QuanLyCanTeen.service.serviceImpl;
 
 import com.project.QuanLyCanTeen.dto.KhachHangDto;
-import com.project.QuanLyCanTeen.entity.KhachHang;
-import com.project.QuanLyCanTeen.repository.KhachHangRepo;
-import com.project.QuanLyCanTeen.service.KhachHangService;
+import com.project.QuanLyCanTeen.entity.NhanVien;
+import com.project.QuanLyCanTeen.repository.NhanVienRepo;
+import com.project.QuanLyCanTeen.service.NhanVienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Service
-public class KhachHangServiceImpl implements KhachHangService {
+public class NhanVienServiceImpl implements NhanVienService {
 
     @Autowired
-    private KhachHangRepo repo;
+    private NhanVienRepo repo;
 
 
     @Override
-    public Long findMaKhachHangByMaTaiKhoan(Long mataikhoan) {
-        return repo.findMaKhachHangByMaTaiKhoan(mataikhoan);
-    }
-
-    @Override
-    public KhachHang findKhachHangByMaTaiKhoan(Long mataikhoan) {
+    public NhanVien findByMaTaiKhoan(Long mataikhoan) {
         return repo.findByMaTaiKhoan(mataikhoan);
     }
 

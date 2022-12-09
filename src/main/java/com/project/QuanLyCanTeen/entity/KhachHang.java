@@ -24,6 +24,9 @@ public class KhachHang {
     @Column(name = "email")
     private String email;
 
+    @Transient
+    private Long maacc;
+
     @OneToOne
     @JoinColumn(name = "maacc",referencedColumnName = "mataikhoan")
     private TaiKhoan taikhoan;

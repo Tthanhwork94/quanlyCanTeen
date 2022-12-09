@@ -2,6 +2,7 @@ package com.project.QuanLyCanTeen.service.serviceImpl;
 
 import com.project.QuanLyCanTeen.dto.DonDatDto;
 import com.project.QuanLyCanTeen.entity.DonDatHang;
+import com.project.QuanLyCanTeen.entity.SanPham;
 import com.project.QuanLyCanTeen.repository.DonDatHangRepo;
 import com.project.QuanLyCanTeen.service.DonDatHangService;
 import com.project.QuanLyCanTeen.service.KhachHangService;
@@ -32,6 +33,16 @@ public class DonDatHangServiceImpl implements DonDatHangService {
     @Override
     public List<DonDatHang> findDonDatHangByMaTaiKhoan(Long mataikhoan) {
         return repo.findDonDatHangByMaKhachhang(khachHangService.findMaKhachHangByMaTaiKhoan(mataikhoan));
+    }
+
+    @Override
+    public List<DonDatHang> findAll() {
+        return repo.findAll();
+    }
+
+    @Override
+    public void xacnhandon(Long madonhang) {
+        repo.xacnhandon(madonhang);
     }
 
 

@@ -1,5 +1,6 @@
 package com.project.QuanLyCanTeen.service.serviceImpl;
 
+import com.project.QuanLyCanTeen.dto.ChangePasswordDto;
 import com.project.QuanLyCanTeen.entity.TaiKhoan;
 import com.project.QuanLyCanTeen.repository.TaiKhoanRepo;
 import com.project.QuanLyCanTeen.service.TaiKhoanService;
@@ -51,6 +52,18 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     public TaiKhoan findByTenTaiKhoan(String tentaikhoan) {
         return repo.findByTentaikhoan(tentaikhoan);
     }
+
+    @Override
+    @Transactional(rollbackOn = {Error.class, Exception.class})
+    public Integer updateMatKhau(ChangePasswordDto dto) {
+        TaiKhoan taiKhoan=repo.findByMataikhoan(dto.getMataikhoan());
+        if(bCrypt.matches(dto.getMatkhaucu(),taiKhoan.getMatkhau())){
+            return repo.updateMatKhau(dto.getMataikhoan(), dto.getMatkhaucu(), bCrypt.encode(dto.getMatkhaumoi()));
+        }else{
+            return -1;
+        }
+    }
+
 
     @Override
     @Transactional(rollbackOn = {Exception.class, Error.class})

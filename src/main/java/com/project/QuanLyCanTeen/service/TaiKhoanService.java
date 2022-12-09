@@ -1,5 +1,6 @@
 package com.project.QuanLyCanTeen.service;
 
+import com.project.QuanLyCanTeen.dto.ChangePasswordDto;
 import com.project.QuanLyCanTeen.entity.TaiKhoan;
 import org.springframework.http.ResponseEntity;
 
@@ -11,4 +12,6 @@ public interface TaiKhoanService {
     ResponseEntity<TaiKhoan> doLogin(TaiKhoan taiKhoan);
 
     TaiKhoan findByTenTaiKhoan(String tentaikhoan);
+
+    Integer updateMatKhau(ChangePasswordDto dto);
 }

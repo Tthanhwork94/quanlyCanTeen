@@ -1,7 +1,9 @@
 package com.project.QuanLyCanTeen.controller;
 
 
+import com.project.QuanLyCanTeen.dto.DonDatDto;
 import com.project.QuanLyCanTeen.dto.SanPhamDto;
+import com.project.QuanLyCanTeen.service.DonDatHangService;
 import com.project.QuanLyCanTeen.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,9 @@ public class PutController {
     @Autowired
     private SanPhamService sanPhamService;
 
+    @Autowired
+    private DonDatHangService donDatHangService;
+
     @PutMapping("sanpham")
     public ResponseEntity<?> updateSanPham(@RequestBody SanPhamDto dto){
         System.out.println(dto.getMasanpham());
@@ -28,6 +33,18 @@ public class PutController {
             return ResponseEntity.status(HttpStatus.OK).body(1);
         }else{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1); //400
+        }
+
+    }
+
+    @PutMapping("dondathang")
+    public Integer xacnhandon(@RequestBody DonDatDto dto){
+        System.out.println(dto.getMadondathang());
+        try{
+            donDatHangService.xacnhandon(dto.getMadondathang());
+            return 1;
+        }catch (Exception e){
+            return -1;
         }
 
     }

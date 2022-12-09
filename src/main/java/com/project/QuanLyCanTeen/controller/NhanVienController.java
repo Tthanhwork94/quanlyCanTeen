@@ -1,19 +1,19 @@
 package com.project.QuanLyCanTeen.controller;
 
+import com.project.QuanLyCanTeen.dto.KhachHangDto;
 import com.project.QuanLyCanTeen.dto.PhieuNhapDto;
 import com.project.QuanLyCanTeen.dto.SanPhamDto;
 import com.project.QuanLyCanTeen.entity.ChiTietPhieuNhap;
+import com.project.QuanLyCanTeen.entity.NhanVien;
 import com.project.QuanLyCanTeen.entity.PhieuNhap;
 import com.project.QuanLyCanTeen.service.ChiTietPhieuNhapService;
+import com.project.QuanLyCanTeen.service.NhanVienService;
 import com.project.QuanLyCanTeen.service.PhieuNhapService;
 import com.project.QuanLyCanTeen.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +30,9 @@ public class NhanVienController {
     @Autowired
     private ChiTietPhieuNhapService chiTietPhieuNhapService;
 
+
+    @Autowired
+    private NhanVienService nhanVienService;
 
     @PostMapping("/sanpham")
     public ResponseEntity<Integer> insertSanPham(@RequestBody SanPhamDto dto){
@@ -73,5 +76,26 @@ public class NhanVienController {
             System.out.println(c.getSoluongnhap());
         }
         return chiTietPhieuNhapService.insertChiTietPhieuNhap(danhsach);
+    }
+
+    @GetMapping("nhanvien/{mataikhoan}")
+    public NhanVien getNhanVien(@PathVariable("mataikhoan") Long mataikhoan){
+        return nhanVienService.findByMaTaiKhoan(mataikhoan);
+    }
+
+    @PutMapping("nhanvien")
+    public ResponseEntity<?> updateKhachHang(@RequestBody KhachHangDto dto){
+        System.out.println(dto.getHoten());
+        System.out.println(dto.getMaacc());
+        System.out.println(dto.getEmail());
+        System.out.println(dto.getDiachi());
+        try {
+            nhanVienService.updateInfor(dto);
+            return ResponseEntity.ok(1);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
+        }
+
     }
 }

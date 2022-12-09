@@ -2,6 +2,7 @@ package com.project.QuanLyCanTeen.repository;
 
 
 import com.project.QuanLyCanTeen.entity.DonDatHang;
+import com.project.QuanLyCanTeen.entity.SanPham;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,4 +20,11 @@ public interface DonDatHangRepo extends JpaRepository<DonDatHang,Long> {
 
     @Query(value = "select * from DonDatHang where makhachhang = :makhachhang",nativeQuery = true)
     List<DonDatHang> findDonDatHangByMaKhachhang(Long makhachhang);
+
+
+    @Query(value = "select * from DonDatHang",nativeQuery = true)
+    List<DonDatHang> findAll();
+
+    @Query(value = "UPDATE  DonDatHang set tinhtrangdon=N'đã giao' where madondathang=:madonhang",nativeQuery = true)
+    void xacnhandon(Long madonhang);
 }

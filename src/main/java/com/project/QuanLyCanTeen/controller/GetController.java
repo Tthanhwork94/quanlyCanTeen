@@ -1,7 +1,9 @@
 package com.project.QuanLyCanTeen.controller;
 
 import com.project.QuanLyCanTeen.entity.ChiTietPhieuNhap;
+import com.project.QuanLyCanTeen.entity.DonDatHang;
 import com.project.QuanLyCanTeen.repository.ChiTietPhieuNhapRepo;
+import com.project.QuanLyCanTeen.service.DonDatHangService;
 import com.project.QuanLyCanTeen.service.NhaCungUngService;
 import com.project.QuanLyCanTeen.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class GetController {
     @Autowired
     private SanPhamService sanPhamService;
 
+    @Autowired
+    private DonDatHangService donDatHangService;
+
     @GetMapping("/nhacungung")
     public ResponseEntity<?> getAllNhaCungUng(){
         return ResponseEntity.status(HttpStatus.OK).body(nhaCungUngService.findAll());
@@ -37,6 +42,11 @@ public class GetController {
     @GetMapping("sanpham/totalpage")
     public ResponseEntity<?> getTotalPage(){
         return ResponseEntity.status(HttpStatus.OK).body(sanPhamService.findAll(1,ELEMENT_PER_PAGE).getTotalPages());
+    }
+
+    @GetMapping("dondathang")
+    public List<DonDatHang> getAllDonDatHang(){
+        return donDatHangService.findAll();
     }
 
     @GetMapping("sanpham/{masanpham}")
