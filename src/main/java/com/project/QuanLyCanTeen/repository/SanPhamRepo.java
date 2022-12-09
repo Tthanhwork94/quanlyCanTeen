@@ -23,4 +23,5 @@ public interface SanPhamRepo extends JpaRepository<SanPham,Long> {
     @Query(value = "EXECUTE proc_nv_chinhsuasanpham :masanpham,:tensanpham,:gia",nativeQuery = true)
     Integer updateSanPham(Long masanpham,String tensanpham,Float gia);
 
+
 }

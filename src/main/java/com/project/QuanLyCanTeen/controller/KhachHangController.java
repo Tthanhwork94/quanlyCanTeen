@@ -6,12 +6,11 @@ import com.project.QuanLyCanTeen.service.ChiTietDonDatHangService;
 import com.project.QuanLyCanTeen.service.DonDatHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.project.QuanLyCanTeen.Constant.Constant.ELEMENT_PER_PAGE;
 
 @RestController
 @RequestMapping("api")
@@ -31,5 +30,15 @@ public class KhachHangController {
     @PostMapping("donhangchitiet")
     public ResponseEntity<?> insertDonHangChiTiet(@RequestBody List<ChiTietDonDatHang> danhsach){
         return chiTietDonDatHangService.insertChiTietDonHang(danhsach);
+    }
+
+    @GetMapping("khachhang/{mataikhoan}/dondathang")
+    public ResponseEntity<?> findDonDatHang(@PathVariable("mataikhoan") Long mataikhoan ){
+        return ResponseEntity.ok(donDatHangService.findDonDatHangByMaTaiKhoan(mataikhoan));
+    }
+
+    @GetMapping("dondathang/{madondathang}")
+    public ResponseEntity<?> chitietDonHang(@PathVariable("madondathang") Long madondathang){
+        return chiTietDonDatHangService.findDonDatHangChiTietByMa(madondathang);
     }
 }

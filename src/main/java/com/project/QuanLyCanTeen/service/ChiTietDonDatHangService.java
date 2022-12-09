@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ChiTietDonDatHangService {
     ResponseEntity<Integer> insertChiTietDonHang(List<ChiTietDonDatHang> danhsach);
+
+    ResponseEntity<?> findDonDatHangChiTietByMa(Long madondathang);
 }

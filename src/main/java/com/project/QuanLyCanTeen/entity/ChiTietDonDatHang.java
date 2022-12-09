@@ -23,6 +23,8 @@ public class ChiTietDonDatHang implements Serializable {
     @Column(name = "masanpham")
     private Long masanpham;
 
+    @Transient
+    private String tensanpham;
 
     @Column(name = "soluongmua")
     private Integer soluongmua;
@@ -30,4 +32,5 @@ public class ChiTietDonDatHang implements Serializable {
 
     @Column(name = "dongia")
     private Float dongia;
+
 }
