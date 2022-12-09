@@ -1,11 +1,15 @@
 package com.project.QuanLyCanTeen.controller;
 
+import com.project.QuanLyCanTeen.entity.ChiTietPhieuNhap;
+import com.project.QuanLyCanTeen.repository.ChiTietPhieuNhapRepo;
 import com.project.QuanLyCanTeen.service.NhaCungUngService;
 import com.project.QuanLyCanTeen.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.project.QuanLyCanTeen.Constant.Constant.ELEMENT_PER_PAGE;
 
@@ -39,4 +43,6 @@ public class GetController {
     public ResponseEntity<?> getChiTietSanPham(@PathVariable Long masanpham){
         return ResponseEntity.status(HttpStatus.OK).body(sanPhamService.findByMaSanPham(masanpham));
     }
+
+
 }

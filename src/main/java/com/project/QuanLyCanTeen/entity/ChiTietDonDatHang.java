@@ -1,8 +1,19 @@
 package com.project.QuanLyCanTeen.entity;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class ChiTietDonDatHang {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "chitietdondathang")
+@IdClass(ChiTietDonDatHang.class)
+public class ChiTietDonDatHang implements Serializable {
 
     @Id
     @Column(name = "madondathang")
@@ -12,13 +23,6 @@ public class ChiTietDonDatHang {
     @Column(name = "masanpham")
     private Long masanpham;
 
-    @ManyToOne
-    @JoinColumn(name = "madondathang")
-    private DonDatHang dondathang;
-
-    @ManyToOne
-    @JoinColumn(name = "masanpham")
-    private SanPham sanpham;
 
     @Column(name = "soluongmua")
     private Integer soluongmua;
