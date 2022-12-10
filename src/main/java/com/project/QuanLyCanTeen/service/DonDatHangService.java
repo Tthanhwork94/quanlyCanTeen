@@ -19,4 +19,6 @@ public interface DonDatHangService {
     void xacnhandon(Long madonhang);
 
     void thanhtoan(Long madonhang);
+
+    List<Float> thongketongtien(int nam);
 }

@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -48,6 +49,15 @@ public class DonDatHangServiceImpl implements DonDatHangService {
     @Override
     public void thanhtoan(Long madonhang) {
         repo.thanhtoan(madonhang);
+    }
+
+    @Override
+    public List<Float> thongketongtien(int nam) {
+        List<Float> tongtien = new ArrayList<>();
+        for(int i = 1;i<=12;i++){
+            tongtien.add(repo.thongke_tongtien(i,nam));
+        }
+        return tongtien;
     }
 
 

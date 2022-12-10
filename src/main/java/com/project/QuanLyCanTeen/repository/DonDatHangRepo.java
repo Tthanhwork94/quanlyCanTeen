@@ -30,4 +30,8 @@ public interface DonDatHangRepo extends JpaRepository<DonDatHang,Long> {
 
     @Query(value = "UPDATE  DonDatHang set tinhtrangdon=N'chưa giao' where madondathang=:madonhang",nativeQuery = true)
     void thanhtoan(Long madonhang);
+
+    @Query(value = "EXECUTE  proc_nv_thongke_tongtien :thang,:nam",nativeQuery = true)
+    Float thongke_tongtien(int thang,int nam);
+
 }

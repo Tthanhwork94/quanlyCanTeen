@@ -54,5 +54,9 @@ public class GetController {
         return ResponseEntity.status(HttpStatus.OK).body(sanPhamService.findByMaSanPham(masanpham));
     }
 
-
+    @GetMapping("thongke/{nam}")
+    public List<Float> thongke(@PathVariable("nam") int nam){
+        List<Float> tongtien = donDatHangService.thongketongtien(nam);
+        return tongtien;
+    }
 }
