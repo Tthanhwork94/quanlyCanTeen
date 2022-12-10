@@ -22,4 +22,8 @@ public interface TaiKhoanRepo extends JpaRepository<TaiKhoan,Long> {
     @Modifying(clearAutomatically = true)
     @Query(value = "EXECUTE  proc_TK_doiMatKhau :mataikhoan,:matkhaucu,:matkhaumoi",nativeQuery = true)
     Integer updateMatKhau(Long mataikhoan,String matkhaucu,String matkhaumoi);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "UPDATE TaiKhoan set tinhtrang=:tinhtrang where mataikhoan=:mataikhoan",nativeQuery = true)
+    Integer updateTinhTrang(Long mataikhoan,String tinhtrang);
 }

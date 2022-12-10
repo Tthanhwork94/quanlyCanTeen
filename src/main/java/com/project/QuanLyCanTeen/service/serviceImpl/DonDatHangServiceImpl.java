@@ -45,5 +45,10 @@ public class DonDatHangServiceImpl implements DonDatHangService {
         repo.xacnhandon(madonhang);
     }
 
+    @Override
+    public void thanhtoan(Long madonhang) {
+        repo.thanhtoan(madonhang);
+    }
+
 
 }

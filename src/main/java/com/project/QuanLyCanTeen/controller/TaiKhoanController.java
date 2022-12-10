@@ -35,4 +35,23 @@ public class TaiKhoanController {
         }
         return ResponseEntity.ok(1);
     }
+
+    @GetMapping("")
+    public ResponseEntity<?> getAll(){
+        try{
+            return ResponseEntity.ok(taiKhoanService.findAll());
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
+        }
+    }
+
+    @PutMapping("tinhtrang")
+    public ResponseEntity<?> updateTinhTrang(@RequestBody TaiKhoan taiKhoan){
+        try{
+            return ResponseEntity.ok(taiKhoanService.updateTinhTrang(taiKhoan));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
+        }
+    }
 }

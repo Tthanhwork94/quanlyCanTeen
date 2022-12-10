@@ -17,4 +17,6 @@ public interface DonDatHangService {
     List<DonDatHang> findAll();
 
     void xacnhandon(Long madonhang);
+
+    void thanhtoan(Long madonhang);
 }

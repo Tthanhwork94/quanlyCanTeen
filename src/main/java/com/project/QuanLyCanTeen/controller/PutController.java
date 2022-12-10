@@ -48,4 +48,16 @@ public class PutController {
         }
 
     }
+
+    @PutMapping("dondathang/thanhtoan")
+    public Integer thanhtoan(@RequestBody DonDatDto dto){
+        System.out.println(dto.getMadondathang());
+        try{
+            donDatHangService.thanhtoan(dto.getMadondathang());
+            return 1;
+        }catch (Exception e){
+            return -1;
+        }
+
+    }
 }

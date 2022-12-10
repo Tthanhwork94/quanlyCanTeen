@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -62,6 +63,17 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
         }else{
             return -1;
         }
+    }
+
+    @Override
+    public List<TaiKhoan> findAll() {
+        return repo.findAll();
+    }
+
+    @Override
+    @Transactional(rollbackOn = {Exception.class,Error.class})
+    public Integer updateTinhTrang(TaiKhoan taiKhoan) {
+        return repo.updateTinhTrang(taiKhoan.getMataikhoan(), taiKhoan.getTinhtrang());
     }
 
 
