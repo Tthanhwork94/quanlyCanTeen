@@ -16,5 +16,5 @@ public interface SanPhamService {
 
     Integer updateSanPham(SanPhamDto dto);
 
-
+    void updateSoLuongTon(Long masanpham,Integer change);
 }

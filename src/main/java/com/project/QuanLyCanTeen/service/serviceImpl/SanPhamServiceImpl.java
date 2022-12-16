@@ -50,4 +50,9 @@ public class SanPhamServiceImpl implements SanPhamService {
         }
 
     }
+
+    @Override
+    public void updateSoLuongTon(Long masanpham, Integer change) {
+        repo.updateSoLuongTon(masanpham,change);
+    }
 }

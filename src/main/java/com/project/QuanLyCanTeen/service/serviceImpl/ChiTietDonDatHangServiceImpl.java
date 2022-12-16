@@ -24,14 +24,20 @@ public class ChiTietDonDatHangServiceImpl implements ChiTietDonDatHangService {
     @Override
     @Transactional(rollbackOn = {Exception.class, Error.class})
     public ResponseEntity<Integer> insertChiTietDonHang(List<ChiTietDonDatHang> danhsach) {
-        Integer flag=1;
-        for(ChiTietDonDatHang c:danhsach){
-            flag = repo.insertChiTiet(c.getMadondathang(), c.getMasanpham(), c.getDongia(),c.getSoluongmua());
-            if(flag == -1){
-                break;
+        try{
+            for(ChiTietDonDatHang c:danhsach){
+                System.out.println(c.getMadondathang());
+                System.out.println(c.getTensanpham());
+                System.out.println(c.getSoluongmua());
+                repo.insertChiTiet(c.getMadondathang(), c.getMasanpham(), c.getDongia(),c.getSoluongmua());
+                sanPhamService.updateSoLuongTon(c.getMasanpham(),-c.getSoluongmua());
             }
+            return ResponseEntity.status(HttpStatus.OK).body(1);
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.OK).body(-1);
         }
-        return ResponseEntity.status(HttpStatus.OK).body(flag);
+
     }
 
     @Override

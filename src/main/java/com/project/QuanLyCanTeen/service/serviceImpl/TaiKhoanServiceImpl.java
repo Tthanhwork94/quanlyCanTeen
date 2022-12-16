@@ -33,6 +33,9 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
                 System.out.println("chua ton tai");
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(taiKhoan); //404
             }else{
+                if(taiKhoandb.getTinhtrang().equals("khóa")){
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body(taiKhoandb); //403
+                }
                 Boolean flag = bCrypt.matches(taiKhoan.getMatkhau(), taiKhoandb.getMatkhau());
                 if (flag == true){
                     System.out.println("dang nhap thanh cong");

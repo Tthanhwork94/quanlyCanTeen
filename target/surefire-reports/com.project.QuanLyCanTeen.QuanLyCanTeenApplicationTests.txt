@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.project.QuanLyCanTeen.QuanLyCanTeenApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.459 s - in com.project.QuanLyCanTeen.QuanLyCanTeenApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.57 s - in com.project.QuanLyCanTeen.QuanLyCanTeenApplicationTests
