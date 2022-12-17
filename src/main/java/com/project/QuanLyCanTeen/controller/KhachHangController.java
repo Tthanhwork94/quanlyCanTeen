@@ -31,9 +31,13 @@ public class KhachHangController {
 
     @PostMapping("dondathang")
     public ResponseEntity<?> insertDonDatHang(@RequestBody DonDatDto dto){
-        System.out.println(dto.getThoigiannhan());
-        System.out.println(dto.getMakhachhang());
-        return ResponseEntity.ok(donDatHangService.insertDonDatHang(dto));
+        Integer flag=donDatHangService.insertDonDatHang(dto);
+        if(flag!=-1){
+            return ResponseEntity.ok(donDatHangService.insertDonDatHang(dto));
+        }else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
+        }
+
     }
 
     @PostMapping("donhangchitiet")

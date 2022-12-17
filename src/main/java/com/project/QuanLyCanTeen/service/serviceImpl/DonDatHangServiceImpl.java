@@ -28,9 +28,11 @@ public class DonDatHangServiceImpl implements DonDatHangService {
     @Override
     @Transactional(rollbackOn = {Error.class, Exception.class})
     public Integer insertDonDatHang(DonDatDto dto) {
-        System.out.println(dto.getThoigiannhan());
-        System.out.println(dto.getMakhachhang());
-        return repo.insertDonDatHang(dto.getThoigiannhan(),dto.getMakhachhang());
+        try{
+            return repo.insertDonDatHang(dto.getThoigiannhan(),dto.getMakhachhang());
+        }catch (Exception e){
+            return -1;
+        }
     }
 
     @Override

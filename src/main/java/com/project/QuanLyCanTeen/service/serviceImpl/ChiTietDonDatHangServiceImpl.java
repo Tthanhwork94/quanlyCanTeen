@@ -35,7 +35,7 @@ public class ChiTietDonDatHangServiceImpl implements ChiTietDonDatHangService {
             return ResponseEntity.status(HttpStatus.OK).body(1);
         }catch (Exception e){
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.OK).body(-1);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
         }
 
     }
