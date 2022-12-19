@@ -33,7 +33,7 @@ public class KhachHangController {
     public ResponseEntity<?> insertDonDatHang(@RequestBody DonDatDto dto){
         Integer flag=donDatHangService.insertDonDatHang(dto);
         if(flag!=-1){
-            return ResponseEntity.ok(donDatHangService.insertDonDatHang(dto));
+            return ResponseEntity.ok(flag);
         }else{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-1);
         }
